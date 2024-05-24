@@ -55,9 +55,6 @@ let g:airline_powerline_fonts = 1
 
 let g:argwrap_tail_comma=1
 
-
-set rtp+=/usr/share/vim/vimfiles/plugin
-
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
 " no select by `"suggest.noselect": true` in your configuration file
