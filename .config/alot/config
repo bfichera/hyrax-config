@@ -1,0 +1,31 @@
+auto_remove_unread = False
+notify_timeout = 5
+periodic_hook_frequency = 1
+thread_indent_replies = 0
+quit_on_last_bclose = True
+displayed_headers = From, To, Cc, Bcc, Subject, Attach
+editor_cmd = /usr/bin/vim
+attachment_prefix = ~/Downloads
+[accounts]
+    [[mit]]
+        realname = Bryan Fichera
+        address = bfichera@mit.edu
+        sendmail_command = msmtp --account=mit -t
+        sent_box = maildir://~/.mail/mit/Sent Items
+        draft_box = maildir://~/.mail/mit/Drafts
+        [[[abook]]]
+            type = shellcommand
+            command = 'notmuch address --format=json --output=recipients date:1Y.. AND from:bfichera@mit.edu'
+            regexp = '\[?{"name": "(?P<name>.*)", "address": "(?P<email>.+)", "name-addr": ".*"}[,\]]?'
+            shellcommand_external_filtering = False
+            ignorecase = True
+[bindings]
+    / = prompt 'search '
+    d = exit
+    q = bclose
+    [[thread]]
+        F = call hooks.auto_thread_focus(ui)
+        v = call hooks.open_in_browser(ui)
+    [[search]]
+        enter = select; fold *; fold *; move last; unfold
+        r = call hooks.check_notmuch(ui)

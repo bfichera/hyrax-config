@@ -8,6 +8,7 @@ set -o vi
 [[ $- != *i* ]] && return
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export GPG_TTY=$(tty)
 
 set editor=vim
 
@@ -45,6 +46,7 @@ alias cdthes='cd $HOME/data/projects/thesis'
 alias v='source venv/bin/activate'
 alias d='deactivate'
 alias z='zathura-and-exit'
+alias s='maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i'
 
 alias ls='ls --color=auto'
 

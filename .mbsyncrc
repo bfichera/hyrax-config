@@ -1,0 +1,23 @@
+IMAPAccount mit
+User bfichera@mit.edu
+Host outlook.office365.com
+Port 993
+AuthMechs XOAUTH2
+PassCmd "oama access bfichera@mit.edu"
+SSLType IMAPS
+
+IMAPStore mit-remote
+Account mit
+
+MailDirStore mit-local
+SubFolders Verbatim
+Path ~/.mail/mit/
+Inbox ~/.mail/mit/Inbox
+
+Channel mit
+Far :mit-remote:
+Near :mit-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
